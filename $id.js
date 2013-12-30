@@ -1,7 +1,7 @@
 Rgx={Html:{Valid:{Id:/^[a-z][\w:.-]*$/i}}};
 //
-function $id(s){return document.getElementById(s)||Rgx.Html.Valid.Id.test(s)?null:0};
-
+function $id(s){var e=document.getElementById(s);return e?e:$id.pattern.test(s)?null:0};
+$id.pattern=window.Rgx.Html.Valid.Id;
 
 //
 var cases=["a","A"," aBcd"," AbCD","1aBcd","2AbCD","!aBcd","$AbCD","aBcd","AbCD","aBcd3_-","AbCD0_-","aBcd:3_-","AbCD:0_-","aBcd:3_-.","AbCD:0_-.","aB.cd","Ab.CD","aBc:d","AbC:D",0,"1",2,""," "];
